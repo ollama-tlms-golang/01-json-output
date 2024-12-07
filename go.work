@@ -1,0 +1,7 @@
+go 1.23.1
+
+use (
+    01-json-prompt
+    02-structured-output
+    03-structured-output
+)
