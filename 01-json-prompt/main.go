@@ -48,19 +48,15 @@ func main() {
 		{Role: "user", Content: userContent},
 	}
 
-
-	// https://ollama.com/library/granite3-moe
 	req := &api.ChatRequest{
-		Model:    "granite3-moe",
+		Model:    "granite3-moe:1b",
 		Messages: messages,
 		Options: map[string]interface{}{
 			"temperature":    0.0,
 			"repeat_last_n":  2,
-			//"repeat_penalty": 2.0,
 		},
 		Stream: &FALSE,
 		Format: json.RawMessage(`"json"`),
-		
 	}
 
 	answer := ""
@@ -74,6 +70,4 @@ func main() {
 	}
 	fmt.Println(answer)
 	fmt.Println()
-
-
 }

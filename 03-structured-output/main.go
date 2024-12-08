@@ -29,7 +29,6 @@ func main() {
 
 	client := api.NewClient(url, http.DefaultClient)
 
-
 	// define schema for a structured output
 	// ref: https://ollama.com/blog/structured-outputs
 	schema := map[string]any{
@@ -83,16 +82,14 @@ func main() {
 	}
 
 	req := &api.ChatRequest{
-		Model:    "granite3-moe",
+		Model:    "granite3-moe:1b",
 		Messages: messages,
 		Options: map[string]interface{}{
 			"temperature":    0.0,
 			"repeat_last_n":  2,
-			//"repeat_penalty": 2.0,
 		},
 		Stream: &FALSE,
 		Format: json.RawMessage(jsonModel),
-		
 	}
 
 	answer := ""
