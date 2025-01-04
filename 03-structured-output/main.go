@@ -59,7 +59,10 @@ func main() {
 		"required": []string{"scientific_name", "main_species", "average_length", "average_lifespan", "average_weight", "countries"},
 	}
 
-	jsonModel, err := json.Marshal(schema)
+	// convert schema to json with pretty print
+	jsonModel, err := json.MarshalIndent(schema, "", "  ")
+	// jsonModel, err := json.Marshal(schema)
+	fmt.Println(string(jsonModel))
 	if err != nil {
 		log.Fatalln("😡", err)
 	}
